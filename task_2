@@ -1,0 +1,20 @@
+import random
+
+
+# Генерує відсортований список унікальних випадкових чисел.
+# Якщо параметри некоректні, повертає порожній список.
+def get_numbers_ticket(min, max, quantity):
+    if type(min) is not int or type(max) is not int or type(quantity) is not int:
+        return []
+
+    if not (1 <= min <= max <= 1000):
+        return []
+
+    if not (min <= quantity <= max):
+        return []
+
+    if quantity > max - min + 1:
+        return []
+
+    numbers = random.sample(range(min, max + 1), quantity)
+    return sorted(numbers)
